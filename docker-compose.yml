@@ -1,0 +1,27 @@
+version: "1.0"
+
+services:
+  keepfit-app:
+    container_name: keepfit
+    image: keepfit
+    ports:
+      - "8080:8080"
+    networks:
+      - keepfit-network
+
+  keepfit-db:
+    container_name: keepfit-db
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: keepfit
+    ports:
+      - "5433:5432"
+    networks:
+      - keepfit-network
+volumes:
+  keepfit-db:
+
+networks:
+  keepfit-network:
+    driver: bridge
