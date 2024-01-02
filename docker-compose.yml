@@ -16,7 +16,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: keepfit
     ports:
-      - "5433:5432"
+      - "5432:5432"
     networks:
       - keepfit-network
 volumes:

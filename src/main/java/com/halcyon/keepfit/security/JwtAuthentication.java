@@ -1,4 +1,4 @@
-package com.halcyon.keepfit.payload;
+package com.halcyon.keepfit.security;
 
 import lombok.Getter;
 import lombok.Setter;

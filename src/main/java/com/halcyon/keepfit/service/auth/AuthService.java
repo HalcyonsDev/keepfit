@@ -6,7 +6,7 @@ import com.halcyon.keepfit.model.Token;
 import com.halcyon.keepfit.model.User;
 import com.halcyon.keepfit.payload.AuthRequest;
 import com.halcyon.keepfit.payload.AuthResponse;
-import com.halcyon.keepfit.payload.JwtAuthentication;
+import com.halcyon.keepfit.security.JwtAuthentication;
 import com.halcyon.keepfit.service.token.TokenService;
 import com.halcyon.keepfit.service.user.UserService;
 import lombok.RequiredArgsConstructor;

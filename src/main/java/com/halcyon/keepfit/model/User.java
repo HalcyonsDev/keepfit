@@ -1,7 +1,6 @@
 package com.halcyon.keepfit.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.halcyon.keepfit.model.chat.ChatRoom;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
@@ -34,8 +33,18 @@ public class User {
     @Column(name = "lastname")
     private String lastname;
 
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @Column(name = "password")
     private String password;
+
+    @Column(name = "provider")
+    @Enumerated(EnumType.STRING)
+    private AuthProvider provider;
+
+    @Column(name = "provider_id")
+    private String providerId;
 
     @Column(name = "about")
     private String about;

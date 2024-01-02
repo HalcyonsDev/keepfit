@@ -1,6 +1,6 @@
 package com.halcyon.keepfit.util;
 
-import com.halcyon.keepfit.payload.JwtAuthentication;
+import com.halcyon.keepfit.security.JwtAuthentication;
 import io.jsonwebtoken.Claims;
 
 public class JwtUtil {
