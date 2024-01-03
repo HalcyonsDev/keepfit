@@ -1,6 +1,8 @@
 package com.halcyon.keepfit.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Cascade;
@@ -79,6 +81,26 @@ public class User {
     @JsonBackReference
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Diet> diets;
+
+    @OneToMany(mappedBy = "sender")
+    @JsonBackReference
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<FriendRequest> sentFriendRequests;
+
+    @OneToMany(mappedBy = "recipient")
+    @JsonBackReference
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<FriendRequest> receivedFriendRequests;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_friends",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "friend_id")
+    )
+    @JsonIgnoreProperties("friends")
+    @JsonManagedReference
+    private List<User> friends;
 
     @PrePersist
     private void onCreate() {

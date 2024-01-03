@@ -55,4 +55,31 @@ public class UserService {
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
     }
+
+    public User updateFirstname(String firstname) {
+        User currentUser = findCurrentUser();
+
+        currentUser.setFirstname(firstname);
+        userRepository.updateFirstnameById(firstname, currentUser.getId());
+
+        return currentUser;
+    }
+
+    public User updateLastname(String lastname) {
+        User currentUser = findCurrentUser();
+
+        currentUser.setLastname(lastname);
+        userRepository.updateLastnameById(lastname, currentUser.getId());
+
+        return currentUser;
+    }
+
+    public User updateAbout(String about) {
+        User currentUser = findCurrentUser();
+
+        currentUser.setAbout(about);
+        userRepository.updateAboutById(about, currentUser.getId());
+
+        return currentUser;
+    }
 }
